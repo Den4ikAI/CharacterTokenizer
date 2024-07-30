@@ -14,7 +14,7 @@ import chartk
 
 tokenizer = chartk.CharacterTokenizer.from_pretrained('ruaccent/RUAccent-encoder')
 
-prompt = 'Я помню чудное
+prompt = "Я помню чудное"
 encoded_prompt = tokenizer.encode(prompt, return_tensors='pt')
 print(' | '.join(tokenizer.decode([t]) for t in encoded_prompt[0]))
 ```
