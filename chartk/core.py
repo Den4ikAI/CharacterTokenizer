@@ -40,7 +40,21 @@ class CharacterTokenizer(PreTrainedTokenizer):
         }
         self._vocab_int_to_str = {v: k for k, v in self._vocab_str_to_int.items()}
 
+        pad_token = AddedToken("<pad>", lstrip=False, rstrip=False)
+        bos_token = AddedToken("<s>", lstrip=False, rstrip=False)
+        eos_token = AddedToken("</s>", lstrip=False, rstrip=False)
+        unk_token = AddedToken("<unk>", lstrip=False, rstrip=False)
+        sep_token = AddedToken("<sep>", lstrip=False, rstrip=False)
+        cls_token = AddedToken("<cls>", lstrip=False, rstrip=False)
+        mask_token = AddedToken("<mask>", lstrip=True, rstrip=False)
         super().__init__(
+            bos_token=bos_token,
+            eos_token=eos_token,
+            sep_token=sep_token,
+            cls_token=cls_token,
+            pad_token=pad_token,
+            mask_token=mask_token,
+            unk_token=unk_token,
             add_prefix_space=False,
             model_max_length=model_max_length,
             **kwargs,
